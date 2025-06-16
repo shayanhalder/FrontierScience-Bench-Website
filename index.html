@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
+  <title>FrontierScience Bench</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -52,20 +52,31 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">FrontierScience Bench: Evaluating AI Research Capabilities in LLMs</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Matthew Li</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Santiago Torres-Garcia</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Shayan Halder</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Phani Kuppa</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Vasu Sharma</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Sean O'Brien</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Kevin Zhu</a>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Sunischal Dev</a>
+              </span>
+
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="author-block">Algoverse AI Research <br>ACL REALM 2025</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
 
@@ -95,7 +106,7 @@
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/Swadian/FrontierScience-Bench" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -124,11 +135,10 @@
 
 
 <!-- Teaser video-->
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
       </video>
@@ -137,7 +147,7 @@
       </h2>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
@@ -147,45 +157,198 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+            <p>
+            Large language models (LLMs) have shown remarkable capabilities across various tasks, yet their potential to reason about and construct scientific methodologies remains under explored.
+
+            This work introduces a novel benchmark evaluating LLMs’ capacity to predict methodological details in AI research papers.
+
+            We construct a dataset of 88 papers with redacted methodology sections and zero-shot prompt several state-of-the-art LLMs to generate methodology predictions.
+            <br /><br />
+            Our evaluation framework then employs a LLM-as-judge system with multiple LLM judges, majority voting, and self-omission techniques to minimize biases.
+
+            We validate our LLM judge scores against human judgments.
+
+            We then briefly analyze the judging results of our zero-shot prediction pipeline, suggesting that even state-of-the-art LLMs struggle with the task of methodology generation without more advanced techniques.
+
+            This benchmark lays the groundwork for future research into evaluating LLMs’ potential for aiding in AI research.
+
+            Our benchmark code and dataset are open-sourced at <u><a style="color: blue" target="_blank" href="https://github.com/Swadian/FrontierScience-Bench">https://github.com/Swadian/FrontierScience-Bench. </a></u>
+            </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns ">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            The benchmark consists of three stages:
+          </p>
+          <ul>
+            <li>
+              <strong>Dataset curation:</strong> We created a dataset of 88 research papers, redacted to remove their methodology sections, results, and any references to methodology found in other sections.
+            </li>
+            <li>
+              <strong>Prediction:</strong> Using this new dataset, we zero-shot prompted multiple state-of-the-art LLMs—including GPT-4o, o3-mini, Claude 3.5 Sonnet, and Gemini 1.5 Pro—to generate methodologies.
+            </li>
+            <li>
+              <strong>Evaluation:</strong> We used an LLM-as-a-Judge framework to evaluate how close the predicted methodologies were to the original ones.
+            </li>
+          </ul>
+
+          </p>
+          
+          <p> Our paper curation process is detailed in the figure below. </p>
+           <img src="static/images/paper curation.png" alt="Picture of the 4 model's performance on the benchmark, 4 histograms."/>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns ">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"> Redaction Pipeline </h2>
+        <div class="content has-text-justified">
+          <p>
+            After selecting and processing papers, we passed them through our two-stage redaction pipeline to remove the author’s methodologies.<br><br>
+            <strong>Stage 1:</strong> We first took the trimmed paper in JSON format and removed the methodologies field (denoted as the filtered paper).<br><br>
+            <strong>Stage 2:</strong> To address minor instances of methodologies spread throughout other sections, we applied two layers of manual removal:
+            <ul>
+              <li>
+                Each author removed revealing information from their assigned range of papers.
+              </li>
+              <li>
+                A single author then reviewed all annotations, alongside the trimmed paper, and made further changes where necessary.
+              </li>
+            </ul>
+            This process ensured high-fidelity redaction and reduced variability from having many human annotators.<br><br>
+            To aid manual redaction, we used DiffChecker to visualize differences between original and redacted papers.
+          </p>
+          </p>
+        </div>
+        <img src="static/images/redaction pipeline.png" alt="Image redaction pipeline"/>
+        <p> Visual representation of the manual redaction pipeline in two steps. Identifying information (author names,
+emails, affiliations) are removed along with table data, references, and appendices.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns ">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"> Results </h2>
+        <div class="content has-text-justified">
+          <p> 
+            The figure below shows the aggregated score distributions
+            for each predictor LLM, illustrating overall performance trends. All models average between 3 and
+            3.5. Due to the knowledge cutoff, we refrain from
+            directly comparing the predictor LLMs. Nonetheless, the right-skewed distributions and low averages suggest that state-of-the-art LLMs struggle to
+            consistently produce high-quality methodologies
+            when prompted zero-shot. Although they capture
+            some fundamental steps, they lack the fine-grained,
+            domain-specific details needed for rigor. These
+            findings highlight the need for further innovation
+            to guide LLMs toward generating robust scientific
+            methodologies
+          </p>
+          <img src="static/images/results.png" alt="Picture of the 4 model's performance on the benchmark, 4 histograms."/>
+         
+          <p>
+            It is important to note that because the dataset exclusively contains AI/ML papers with 15 pages or less,
+            it narrows the scope of our evaluation, making it unclear whether our
+            findings would generalize to other disciplines, such
+            as medicine or social sciences, where experimental
+            frameworks may differ significantly. <br /><br />
+            We imposed this page limit due to context window limits and to constrain the manual redaction
+            process. This may exclude more rigorous methodologies in longer research papers that are more challenging to predict. Additionally, papers with extensive mathematical notation were excluded due to
+            PyMuPDF parsing failures. This limits our benchmark’s applicability to theoretical or math-heavy
+            research and may inflate model performance. Finally, while all 88 papers were published after GPT4o’s October 2023 cutoff to minimize training data
+            overlap, we later included models with later cutoffs
+            (e.g., Claude 3.5 Sonnet, Gemini 1.5 Pro). This
+            introduces a risk of training data contamination in
+            those models
+
+
+
+
+          </p>
+          
+          
+
+        </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns ">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"> Ethics </h2>
+        <div class="content has-text-justified">
+          <p>
+            This benchmark is designed as a diagnostic tool
+            to assess the reasoning capabilities of LLMs and
+            does not aim to automate scientific authorship or
+            replace human researchers. This task isolates the
+            problem of reconstructing plausible methodological reasoning from surrounding content for evaluation purposes. We acknowledge the risks of misuse,
+            such as treating generated methods as ready for use
+            in real AI research. To reduce this risk, we frame
+            our task as a diagnostic benchmark, not a writing
+            tool, and do not recommend using these systems in
+            scientific work without safeguards.
+
+
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <!-- Your image here -->
         <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           First image description.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
         <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Second image description.
         </h2>
       </div>
       <div class="item">
-        <!-- Your image here -->
         <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
          Third image description.
        </h2>
      </div>
      <div class="item">
-      <!-- Your image here -->
       <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Fourth image description.
@@ -194,56 +357,56 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- End image carousel -->
 
 
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
+
       <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
           <div class="publication-video">
-            <!-- Youtube embed code here -->
+
             <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
+
             <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
+
             <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
+
             <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
@@ -251,7 +414,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
 
@@ -260,7 +423,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -270,7 +433,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -278,7 +441,16 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>
+        @inproceedings{horwitz2024recovering,
+          title={FrontierScience Bench: Evaluating AI Research Capabilities in LLMs},
+          author={Matthew Li*, Santiago Torres-Garcia*, Shayan Halder, 
+                Phani Kuppa, Vasu Sharma, Sean O'Brien, Kevin Zhu, Sunischal Dev},
+          booktitle={ACL REALM},
+          year={2025},
+          organization={Algoverse AI Research}
+        }
+      </code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
